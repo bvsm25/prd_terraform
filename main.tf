@@ -94,7 +94,7 @@ resource "aws_security_group" "omega_prd_backend_sg" {
   name        = "omega_prd_backend_sg"
   description = "Groupe securite omega"
   vpc_id      = aws_vpc.vpc_prd.id
-
+/*
   ingress {
     description = "Allow all traffic through HTTP"
     from_port   = 80
@@ -148,21 +148,22 @@ resource "aws_security_group" "omega_prd_backend_sg" {
     cidr_blocks = var.allowed_cidr_blocks_http
   }
 
+*/
 
   ingress {
-    description = "Allow SSH from my computer"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    description = "allow traffic from our machines"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = var.allowed_cidr_blocks_ssh
   }
 
   ingress {
-    description = "Allow All trafic from dev_frontend"
+    description = "Allow All trafic from prd_frontend"
     from_port   = 0
     to_port     = 0
     protocol    = -1
-    cidr_blocks = ["10.0.1.135/32"]
+    cidr_blocks = [var.flow_opening["omega_prd_frontend"]]
   }
 
   egress {
@@ -184,6 +185,8 @@ resource "aws_security_group" "omega_prd_frontend_sg" {
   name        = var.sg_omega_name_frontend
   description = "Groupe securite omega frontend"
   vpc_id      = aws_vpc.vpc_prd.id
+
+/*
 
   ingress {
     description = "Allow all traffic through HTTP"
@@ -209,14 +212,6 @@ resource "aws_security_group" "omega_prd_frontend_sg" {
     cidr_blocks = var.allowed_cidr_blocks_ssh
   }
 
-  egress {
-    description = "Allow all outbound traffic"
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
 ingress {
     description = "For Grafana"
     from_port   = 3000
@@ -240,13 +235,30 @@ ingress {
     cidr_blocks = var.allowed_cidr_blocks_http
   }
 
+*/
 
   ingress {
-    description = "For Node-exporter"
-    from_port   = 9100
-    to_port     = 9100
-    protocol    = "tcp"
-    cidr_blocks = var.allowed_cidr_blocks_http
+    description = "allow traffic from our machines"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = var.allowed_cidr_blocks_ssh
+  }
+
+    ingress {
+    description = "Allow All trafic from prd_backend"
+    from_port   = 0
+    to_port     = 0
+    protocol    = -1
+    cidr_blocks = [var.flow_opening["omega_prd_backend"]]
+  }
+
+  egress {
+    description = "Allow all outbound traffic"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
@@ -357,6 +369,18 @@ resource "aws_eip" "omega_prd_eip" {
     Name = "${var.eip_name}${count.index}"
   }
 }
+
+//Reserver IP fixe frontend
+
+resource "aws_eip" "omega_prd_eip_frontend" {
+  count    = var.settings.omega_prd_frontend.count
+  instance = aws_instance.omega_prd_frontend[count.index].id
+  vpc      = true
+  tags = {
+    Name = "${var.eip_name_frontend}${count.index}"
+  }
+}
+
 //Création instace EC2 omega_frontend
 
 resource "aws_instance" "omega_prd_frontend" {
@@ -370,16 +394,7 @@ resource "aws_instance" "omega_prd_frontend" {
     Name = "prd_omega_frontend"
   }
 }
-//Reserver IP fixe frontend
 
-resource "aws_eip" "omega_prd_eip_frontend" {
-  count    = var.settings.omega_prd_frontend.count
-  instance = aws_instance.omega_prd_frontend[count.index].id
-  vpc      = true
-  tags = {
-    Name = "${var.eip_name_frontend}${count.index}"
-  }
-}
 
 # Définition des volumes EBS
 resource "aws_ebs_volume" "omega_prd_front_vol" {
