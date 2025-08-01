@@ -155,7 +155,7 @@ resource "aws_security_group" "omega_prd_backend_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.acc_macines["danielle-tatouopa"]]
+    cidr_blocks = [var.acc_machines["danielle-tatouopa"]]
   }
 
   ingress {
@@ -246,7 +246,7 @@ ingress {
   }
 
     ingress {
-    description = "Allow trafic from prd_backend"
+    description = "Allow All trafic from prd_backend"
     from_port   = 0
     to_port     = 0
     protocol    = -1
