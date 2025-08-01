@@ -151,11 +151,11 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 */
 
   ingress {
-    description = "allow traffic from our machines"
+    description = "ahcene"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = var.allowed_cidr_blocks_ssh
+    cidr_blocks =[var.acc_machines["ahcene"]]
   }
 
   ingress {
@@ -168,7 +168,7 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 
   egress {
     description = "Allow all outbound traffic"
-    from_port   = 0
+    from_port   =  0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
@@ -221,7 +221,7 @@ ingress {
   }
 
   ingress {
-    description = "For prometheus"
+    description = "for prometheus"
     from_port   = 9090
     to_port     = 9090
     protocol    = "tcp"
@@ -238,11 +238,11 @@ ingress {
 */
 
   ingress {
-    description = "allow traffic from our machines"
+    description = "ahcene"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = var.allowed_cidr_blocks_ssh
+    cidr_blocks = [var.acc_machines["ahcene"]]
   }
 
     ingress {
