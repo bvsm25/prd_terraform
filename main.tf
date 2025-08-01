@@ -155,7 +155,7 @@ resource "aws_security_group" "omega_prd_backend_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.acc_machine["katia"]]
+    cidr_blocks = [var.acc_machines["katia"]]
   }
 
   ingress {
@@ -242,7 +242,7 @@ ingress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.acc_machine["katia"]]
+    cidr_blocks = [var.acc_machines["katia"]]
   }
 
     ingress {
