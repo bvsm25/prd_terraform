@@ -151,11 +151,12 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 */
 
   ingress {
-    description = "allow traffic from our machines"
+    description = "SOKHNA"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = var.allowed_cidr_blocks_ssh
+    cidr_blocks = [var.acc_machines["sokhna"]]
+
   }
 
   ingress {
@@ -238,11 +239,11 @@ ingress {
 */
 
   ingress {
-    description = "allow traffic from our machines"
+    description = "SOKHNA"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = var.allowed_cidr_blocks_ssh
+    cidr_blocks = [var.acc_machines["sokhna"]]
   }
 
     ingress {
