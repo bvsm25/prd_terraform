@@ -94,6 +94,7 @@ resource "aws_security_group" "omega_prd_backend_sg" {
   name        = "omega_prd_backend_sg"
   description = "Groupe securite omega"
   vpc_id      = aws_vpc.vpc_prd.id
+
 /*
   ingress {
     description = "Allow all traffic through HTTP"
@@ -151,11 +152,11 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 */
 
   ingress {
-    description = "allow traffic from our machines"
+    description = "LAMINE"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = var.allowed_cidr_blocks_ssh
+    cidr_blocks = [var.acc_machines["lamine"]]
   }
 
   ingress {
@@ -238,11 +239,11 @@ ingress {
 */
 
   ingress {
-    description = "allow traffic from our machines"
+    description = "LAMINE"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = var.allowed_cidr_blocks_ssh
+    cidr_blocks = [var.acc_machines["lamine"]]
   }
 
     ingress {
