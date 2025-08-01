@@ -248,7 +248,8 @@ ingress {
 
     ingress {
     description = "Allow All trafic from prd_backend"
-    from_port   =     to_port     = 0
+    from_port   = 0    
+    to_port     = 0
     protocol    = -1
     cidr_blocks = [var.flow_opening["omega_prd_backend"]]
   }
