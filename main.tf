@@ -151,12 +151,21 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 */
 
   ingress {
+ 
     description = "ahcene"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks =[var.acc_machines["ahcene"]]
   }
+  
+ ingress {
+    description = "BVS"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["bvs"]]
+   }
 
   ingress {
     description = "Allow All trafic from prd_frontend"
@@ -243,6 +252,14 @@ ingress {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["ahcene"]]
+  }
+  
+ingress {
+    description = "BVS"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["bvs"]]
   }
 
     ingress {
