@@ -151,6 +151,13 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 */
 
   ingress {
+sg-danie
+    description = "danie"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["danielle-tatouopa"]]
+
     description = "ange-danielle"
     from_port   = 0
     to_port     = 0
@@ -163,6 +170,7 @@ resource "aws_security_group" "omega_prd_backend_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks =[var.acc_machines["ahcene"]]
+
   }
   
  ingress {
@@ -253,6 +261,13 @@ ingress {
 */
 
   ingress {
+
+    description = "danie"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["danielle-tatouopa"]]
+
     description = "ange-danielle"
     from_port   = 0
     to_port     = 0
@@ -273,6 +288,7 @@ ingress {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["bvs"]]
+
 
   }
 
