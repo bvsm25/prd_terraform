@@ -218,11 +218,11 @@ ingress {
 
   }
  ingress {
-    description = "ahcene"
+    description = "amine"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks =[var.acc_machines["ahcene"]]
+    cidr_blocks =[var.acc_machines["amine"]]
 
 
 
@@ -379,11 +379,11 @@ ingress {
     cidr_blocks = [var.acc_machines["ange-danielle"]]
   }
 ingress {
-    description = "ahcene"
+    description = "amine"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.acc_machines["ahcene"]]
+    cidr_blocks = [var.acc_machines["amine"]]
   }
   
 ingress {
