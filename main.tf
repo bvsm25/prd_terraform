@@ -153,6 +153,13 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 
   ingress {
 
+    description = "zouane"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["mohammed"]]
+
+
     description = "YASSER"
     from_port   = 0
     to_port     = 0
@@ -199,6 +206,7 @@ sg-danie
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["ange-danielle"]]
+
 
 
   }
@@ -302,6 +310,13 @@ ingress {
 
   ingress {
 
+    description = "zouane"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["mohammed"]]
+
+
     description = "YASSER"
     from_port   = 0
     to_port     = 0
@@ -365,15 +380,11 @@ ingress {
     cidr_blocks = [var.acc_machines["bvs"]]
 
 
-
-
-
-
   }
 
     ingress {
     description = "Allow All trafic from prd_backend"
-    from_port   = 0
+    from_port   = 0    
     to_port     = 0
     protocol    = -1
     cidr_blocks = [var.flow_opening["omega_prd_backend"]]
