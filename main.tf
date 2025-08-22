@@ -153,6 +153,13 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 
   ingress {
 
+    description = "nawel"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["nawel"]]
+
+
     description = "LAMINE"
     from_port   = 0
     to_port     = 0
@@ -187,6 +194,7 @@ sg-danie
     to_port     = 0
     protocol    = "-1"
     cidr_blocks =[var.acc_machines["ahcene"]]
+
 
   }
   
@@ -279,12 +287,19 @@ ingress {
 
   ingress {
 
+    description = "nawel"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["nawel"]]
+
+
     description = "LAMINE"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["lamine"]]
-=======
+
 
     description = "katia"
     from_port   = 0
@@ -319,6 +334,7 @@ ingress {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["bvs"]]
+
 
 
 
