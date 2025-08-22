@@ -158,49 +158,56 @@ resource "aws_security_group" "omega_prd_backend_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["mohammed"]]
+  }
 
-
+ingress {
     description = "YASSER"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["yasser"]]
+}
 
-
+ingress {
     description = "SOKHNA"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["sokhna"]]
-
+}
+ingress {
 
     description = "nawel"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["nawel"]]
+}
 
-
+ingress {
     description = "LAMINE"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["lamine"]]
+}
+ingress {
 
- sg-katia
     description = "katia"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["katia"]]
+}
+ingress {
 
-sg-danie
     description = "danie"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["danielle-tatouopa"]]
-
+  }
+ingress {
     description = "ange-danielle"
     from_port   = 0
     to_port     = 0
@@ -315,14 +322,16 @@ ingress {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["mohammed"]]
+  }
 
-
+ingress {
     description = "YASSER"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["yasser"]]
-
+}
+ingress {
 
     description = "SOKHNA"
     from_port   = 0
@@ -330,34 +339,39 @@ ingress {
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["sokhna"]]
 
-
+}
+ingress {
     description = "nawel"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["nawel"]]
 
-
+}
+ingress {
     description = "LAMINE"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["lamine"]]
-
+}
+ingress {
 
     description = "katia"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["katia"]]
-
+}
+ingress {
 
     description = "danie"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["danielle-tatouopa"]]
-
+}
+ingress {
     description = "ange-danielle"
     from_port   = 0
     to_port     = 0
