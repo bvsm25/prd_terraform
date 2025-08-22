@@ -94,6 +94,7 @@ resource "aws_security_group" "omega_prd_backend_sg" {
   name        = "omega_prd_backend_sg"
   description = "Groupe securite omega"
   vpc_id      = aws_vpc.vpc_prd.id
+
 /*
   ingress {
     description = "Allow all traffic through HTTP"
@@ -151,12 +152,59 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 */
 
   ingress {
+
     description = "nawel"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["nawel"]]
+
+
+    description = "LAMINE"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["lamine"]]
+
+ sg-katia
+    description = "katia"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["katia"]]
+
+sg-danie
+    description = "danie"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["danielle-tatouopa"]]
+
+    description = "ange-danielle"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["ange-danielle"]]
+
+
   }
+ ingress {
+    description = "ahcene"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks =[var.acc_machines["ahcene"]]
+
+
+  }
+  
+ ingress {
+    description = "BVS"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["bvs"]]
+   }
 
   ingress {
     description = "Allow All trafic from prd_frontend"
@@ -168,7 +216,7 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 
   egress {
     description = "Allow all outbound traffic"
-    from_port   = 0
+    from_port   =  0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
@@ -221,7 +269,7 @@ ingress {
   }
 
   ingress {
-    description = "For prometheus"
+    description = "for prometheus"
     from_port   = 9090
     to_port     = 9090
     protocol    = "tcp"
@@ -238,11 +286,59 @@ ingress {
 */
 
   ingress {
+
     description = "nawel"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["nawel"]]
+
+
+    description = "LAMINE"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["lamine"]]
+
+
+    description = "katia"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["katia"]]
+
+
+    description = "danie"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["danielle-tatouopa"]]
+
+    description = "ange-danielle"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["ange-danielle"]]
+  }
+ingress {
+    description = "ahcene"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["ahcene"]]
+  }
+  
+ingress {
+    description = "BVS"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["bvs"]]
+
+
+
+
+
   }
 
     ingress {
