@@ -153,6 +153,13 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 
   ingress {
 
+    description = "YASSER"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["yasser"]]
+
+
     description = "SOKHNA"
     from_port   = 0
     to_port     = 0
@@ -201,6 +208,7 @@ sg-danie
     to_port     = 0
     protocol    = "-1"
     cidr_blocks =[var.acc_machines["ahcene"]]
+
 
 
   }
@@ -293,6 +301,13 @@ ingress {
 */
 
   ingress {
+
+    description = "YASSER"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["yasser"]]
+
 
     description = "SOKHNA"
     from_port   = 0
