@@ -151,6 +151,13 @@ resource "aws_security_group" "omega_prd_backend_sg" {
 */
 
   ingress {
+ sg-katia
+    description = "katia"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["katia"]]
+
 sg-danie
     description = "danie"
     from_port   = 0
@@ -163,6 +170,7 @@ sg-danie
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["ange-danielle"]]
+
   }
  ingress {
     description = "ahcene"
@@ -262,6 +270,13 @@ ingress {
 
   ingress {
 
+    description = "katia"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.acc_machines["katia"]]
+
+
     description = "danie"
     from_port   = 0
     to_port     = 0
@@ -288,6 +303,7 @@ ingress {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.acc_machines["bvs"]]
+
 
 
   }
